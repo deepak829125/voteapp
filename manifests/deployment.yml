@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: deepakvoteapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deepakvoteapp
+  template:
+    metadata:
+      labels:
+        app: deepakvoteapp 
+    spec:
+      containers:
+        - name: deepakvoteapp 
+          image: lareseodemoacr.azurecr.io/deepakvoteapp
+          ports:
+          - containerPort: 82
