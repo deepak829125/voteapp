@@ -57,7 +57,9 @@ stages:
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
     pool:
-      vmImage: $(vmImageName)
+        name: Default
+        demands:
+        - agent.name -equals LAPTOP-QPT2M8JV
     environment: 'deepak829125voteapp.default'
     strategy:
       runOnce:
